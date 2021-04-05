@@ -10,6 +10,7 @@ class Game
   def initialize
     @game = 0
     @stop = 1
+    @cards = []
   end
 
   def run
@@ -25,12 +26,20 @@ class Game
         @player = Player.new(name)
         puts MENU
         create_initial_data
+        @game += 1
       else
-        puts "Карты игрока #{@player.show_card}" # Убрать
-        puts "Карты компьютера #{@dealer.show_card}" # Убрать
+        puts START
         action_menu = gets.chomp.to_i
         start(action_menu)
       end
+    end
+  end
+
+  def start(action_menu)
+    case action_menu
+    when 1
+    when 2
+    when 3
     end
   end
 
@@ -39,7 +48,6 @@ class Game
       add_card_to_user
       add_card_to_dealer
     end
-    @game += 1
   end
 
   def add_card_to_dealer

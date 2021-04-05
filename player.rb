@@ -11,11 +11,10 @@ class Player
   end
 
   def show_card
-    puts @cards.to_s
+    puts @cards
   end
 
   def add_card(deck)
-    @cards = []
-    @cards.push(deck.cards.pop)
+    @cards << deck.cards.pop
   end
 end

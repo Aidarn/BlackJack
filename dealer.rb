@@ -6,5 +6,6 @@ class Dealer < Player
   def initialize
     @name = DEALER
     @bank = 100
+    @cards = []
   end
 end
