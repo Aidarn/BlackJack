@@ -7,6 +7,7 @@ class Player
   def initialize(name)
     @name = name
     @bank = 100
+    @cards = []
   end
 
   def show_card
@@ -14,6 +15,7 @@ class Player
   end
 
   def add_card(deck)
+    @cards = []
     @cards.push(deck.cards.pop)
   end
 end

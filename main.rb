@@ -19,7 +19,6 @@ class Game
         break
       elsif @game.zero?
         @deck = Deck.new
-        puts 'Колода перетасована' # Не забыть убрать
         @dealer = Dealer.new
         puts 'Введите имя игрока'
         name = gets.chomp
