@@ -4,11 +4,15 @@ class Player
 
   def initialize(name)
     @name = name
-    @player_bank = 100
-    @hand = Hand.new
+    @bank = 100
+    @cards = [] 
+  end
+
+  def show_card 
+    puts "#{@cards}"
   end
 
   def add_card(card)
-  
+    @cards << card
   end
 end
