@@ -11,6 +11,7 @@ class Game
     @game = 0
     @stop = 1
     @cards = []
+    @bank = 0
   end
 
   def run
@@ -48,6 +49,7 @@ class Game
       add_card_to_user
       add_card_to_dealer
     end
+    
   end
 
   def add_card_to_dealer

@@ -7,6 +7,7 @@ class Dealer < Player
     @name = DEALER
     @bank = 100
     @cards = []
+    @score = 0
   end
 
   def add_card(deck)
@@ -15,7 +16,7 @@ class Dealer < Player
   end
 
   def forbidden_take_card?
-    score > 16
+    @score > 16
   end
 end
 

@@ -5,4 +5,8 @@ class Card
     @suit = suit
     @value = value
   end
+
+  def score
+    score = @value.to_i
+  end
 end
