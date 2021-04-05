@@ -8,4 +8,14 @@ class Dealer < Player
     @bank = 100
     @cards = []
   end
+
+  def add_card(deck)
+    raise "#{@name} пропускает ход." if forbidden_take_card? || size == 3
+    super
+  end
+
+  def forbidden_take_card?
+    score > 16
+  end
 end
+
