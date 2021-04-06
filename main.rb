@@ -53,13 +53,16 @@ class Game
     puts " #{@dealer.show_score} Очки"#Убрать
     puts " #{@dealer.show_bank} Банк"#Убрать
     puts " #{@dealer.size} Карты"#Убрать
-    @dealer.cards.each_with_index { |card, index| puts "#{card}," }
+    @dealer.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.value}" if card.value != 10.1 }
+    @dealer.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.pic}" if card.value == 10.1 }
     puts "Игрок:"#Убрать
     puts " #{@player.show_score} Очки"#Убрать
     puts " #{@player.show_bank} Банк"#Убрать
-    puts " #{@player.size} Карты"#Убрать
-    @deck.show_card.each_with_index { |cards, index| print "#{index},"}#Убрать
+    puts " #{@player.size} Карты:"#Убрать
+    @player.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.value}" if card.value != 10.1 }
+    @player.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.pic}" if card.value == 10.1 }
     puts "Общий банк #{@general_bank}"
+    puts "@deck.cards"
   end
 
   def take_a_card(user)
@@ -68,6 +71,7 @@ class Game
       add_card_to_user
       puts "Ваш баланс: #{@player.show_bank}"
       puts "Сумма очков с карт: #{@player.show_score}"
+      take_a_card(2)
     when 2
       add_card_to_dealer
     end
