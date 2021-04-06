@@ -49,6 +49,11 @@ class Game
     end
   end
 
+  def skip_a_move
+    puts NEXT
+    take_a_card(2)
+  end
+
   def show_info #Убрать
     puts " #{@dealer.show_score} Очки"#Убрать
     puts " #{@dealer.show_bank} Банк"#Убрать
@@ -61,7 +66,7 @@ class Game
     puts " #{@player.size} Карты:"#Убрать
     @player.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.value}" if card.value != 10.1 }
     @player.show_card.each_with_index { |card, index| puts "#{card.suit}-#{card.pic}" if card.value == 10.1 }
-    puts "Общий банк #{@general_bank}"
+    puts "Общий банк: #{@general_bank}"
     puts "@deck.cards"
   end
 
@@ -73,6 +78,7 @@ class Game
       puts "Сумма очков с карт: #{@player.show_score}"
       take_a_card(2)
     when 2
+      puts DEAL
       add_card_to_dealer
     end
   end
