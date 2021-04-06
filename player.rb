@@ -12,7 +12,15 @@ class Player
   end
 
   def show_card
-    puts @cards
+    @cards
+  end
+
+  def show_bank
+    @bank
+  end
+
+  def bet
+    @bank -= 10
   end
 
   def size
@@ -22,5 +30,9 @@ class Player
   def add_card(deck)
     @cards << deck.cards.pop
     @score += @cards.last.score
+  end
+
+  def show_score
+    @score
   end
 end

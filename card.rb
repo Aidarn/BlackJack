@@ -7,6 +7,6 @@ class Card
   end
 
   def score
-    score = @value.to_i
+    @score = @value.to_i
   end
 end
