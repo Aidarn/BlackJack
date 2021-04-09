@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 class Player
-  attr_accessor :bank, :score
-  attr_reader :name, :hand
+  attr_accessor :bank, :score, :cards
+  attr_reader :name, :hand, :size
 
   def initialize(name)
     @name = name
     @bank = 100
     @cards = []
     @score = 0
+    @size = 0
+    validate!
   end
 
   def show_card
@@ -23,16 +25,15 @@ class Player
     @bank -= 10
   end
 
-  def size
-    @cards.size
-  end
-
   def add_card(deck)
     @cards << deck.cards.pop
     @score += @cards.last.score
+    @size += 1
   end
 
-  def show_score
-    @score
+  private
+
+  def validate!
+    raise 'Имя не может быть пустым.' if @name.empty?
   end
 end

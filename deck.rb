@@ -3,7 +3,7 @@
 class Deck
   CARD_VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10].freeze
   SUITS = ['♦', '♠', '♣', '♥'].freeze
-  PICTURES = ['J', 'Q', 'K', 'A']
+  PICTURES = %w[J Q K A].freeze
   attr_reader :cards
 
   def initialize
@@ -16,11 +16,9 @@ class Deck
       CARD_VALUES.each do |value|
         cards << Card.new(suit, value)
       end
-    end
-    SUITS.each do |suit|
       PICTURES.each do |pic|
         value = 10.1
-        cards << Card.new(suit, pic, value)
+        cards << Card.new(suit, value, pic)
       end
     end
     cards.shuffle

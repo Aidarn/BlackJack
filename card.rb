@@ -3,7 +3,7 @@
 class Card
   attr_reader :suit, :value, :pic
 
-  def initialize(suit, pic = 0, value)
+  def initialize(suit, value, pic = 0)
     @pic = pic
     @suit = suit
     @value = value
