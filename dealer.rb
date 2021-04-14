@@ -3,11 +3,12 @@
 class Dealer < Player
   DEALER = 'Dealer'
 
-  def initialize(name = DEALER)
+  def initialize
+    @name = DEALER
     super
   end
 
   def forbidden_take_card?
-    @score > 16
+    hand.score > 16
   end
 end

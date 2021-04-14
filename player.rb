@@ -1,39 +1,38 @@
 # frozen_string_literal: true
 
 class Player
-  attr_accessor :bank, :score, :cards
-  attr_reader :name, :hand, :size
+  attr_accessor :bank, :score, :cards, :name
+  attr_reader :hand, :size
 
-  def initialize(name)
+  def initialize
     @name = name
     @bank = 100
-    @cards = []
-    @score = 0
-    @size = 0
-    validate!
+    @hand = Hand.new
+  end
+
+  def show_score
+    @score
   end
 
   def show_card
-    @cards
+    @hand.cards
   end
 
-  def show_bank
-    @bank
+  def clear_hand
+    @hand = Hand.new
+  end
+
+  def add_card(card)
+    @hand.cards << card
+    @hand.add_score(card)
+    @hand.size += 1
+  end
+
+  def win(bet)
+    @bank += bet
   end
 
   def bet
     @bank -= 10
-  end
-
-  def add_card(deck)
-    @cards << deck.cards.pop
-    @score += @cards.last.score
-    @size += 1
-  end
-
-  private
-
-  def validate!
-    raise 'Имя не может быть пустым.' if @name.empty?
   end
 end

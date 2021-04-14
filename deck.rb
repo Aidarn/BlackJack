@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
+require_relative 'card'
+
 class Deck
-  CARD_VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10].freeze
-  SUITS = ['♦', '♠', '♣', '♥'].freeze
-  PICTURES = %w[J Q K A].freeze
   attr_reader :cards
 
   def initialize
@@ -12,15 +11,19 @@ class Deck
 
   def create_deck
     cards = []
-    SUITS.each do |suit|
-      CARD_VALUES.each do |value|
+    Card::SUITS.each do |suit|
+      Card::CARD_VALUES.each do |value|
         cards << Card.new(suit, value)
       end
-      PICTURES.each do |pic|
+      Card::PICTURES.each do |pic|
         value = 10.1
         cards << Card.new(suit, value, pic)
       end
     end
     cards.shuffle
+  end
+
+  def delete
+    @cards.pop
   end
 end
